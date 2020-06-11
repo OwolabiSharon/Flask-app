@@ -14,7 +14,7 @@ class login(Resource):
                         help="This field cannot be left blank!"
                         )
     def post(self):
-        data = UserReg.parser.parse_args()
+        data = login.parser.parse_args()
         userr =  UserData.find_by_password(data['password'])
         if UserData.find_by_username(data['username']):
             return userr.json()
