@@ -1,7 +1,8 @@
 import os
 from flask import Flask
 from flask_restful import Api
-from resources.userreg import UserReg ,login
+from resources.userreg import UserReg
+from resources.loggin import login
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mongo.db'

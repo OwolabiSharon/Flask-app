@@ -36,6 +36,8 @@ class UserReg(Resource):
         return {'message': 'you have registered'}
 
 
+
+
 class login(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('password',
