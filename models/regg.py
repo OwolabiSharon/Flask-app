@@ -27,3 +27,8 @@ class UserData(db.Model):
     @classmethod
     def find_by_password(cls, password):
         return cls.query.filter_by(password=password).first()
+
+
+    @classmethod
+    def find_by_cridentials(cls, password,username):
+        return cls.query.filter_by(password=password,username=username).first()
