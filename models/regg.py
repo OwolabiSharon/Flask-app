@@ -31,4 +31,4 @@ class UserData(db.Model):
 
     @classmethod
     def find_by_cridentials(cls, password,username):
-        return cls.query.filter_by(password=password,username=username).first()
+        return cls.query.filter_by(password=password).filter_by(username=username).first()
