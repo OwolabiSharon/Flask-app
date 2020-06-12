@@ -15,7 +15,7 @@ class login(Resource):
                         )
     def post(self):
         data = login.parser.parse_args()
-        userr = UserData.find_by_cridentials(data['username'] , data['password'])
-        if userr:
+        userr = UserData.find_by_username(data['username'])
+        if userr == UserData.find_by_password(data['password']) and userr == UserData.find_by_username(data['username']):
             return userr.json()
         return {'message': 'i think you should register before you loggin'}
