@@ -1,5 +1,6 @@
 from models.regg import UserData
 from flask_restful import Resource, reqparse
+from flask_jwt import jwt_required
 
 class login(Resource):
     parser = reqparse.RequestParser()
@@ -19,3 +20,8 @@ class login(Resource):
         if userr == UserData.find_by_password(data['password']) and userr == UserData.find_by_username(data['username']):
             return userr.json()
         return {'message': 'i think you should register before you loggin'}
+
+class UserList(Resource):
+    @jwt_required()
+    def get(self):
+        return {'users': [x.json() for x in UserData.query.all()]}
