@@ -3,6 +3,8 @@ from flask import Flask
 from flask_restful import Api
 from resources.userreg import UserReg
 from resources.loggin import login
+from flask_jwt import JWT
+from security import authenticate, identity
 
 app = Flask(__name__)
 app.secret_key ='1234567890)(*&^%$#@!)'
@@ -11,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = '1234567890)(*&^%$#@!)'
 api = Api(app)
+jwt = JWT(app, authenticate, identity) 
 
 api.add_resource(UserReg, '/register')
 api.add_resource(login, '/loggin')
