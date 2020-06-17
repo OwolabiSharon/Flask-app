@@ -21,10 +21,10 @@ class login(Resource):
             access_token = create_access_token(identity=userr.id,fresh =True)
             refresh_token= create_refresh_token(userr.id)
             return{
+            'UserData':userr.json(),
             'access_token':access_token,
             'refresh_token':refresh_token
             },200
-            return userr.json()
         return {'message': 'i think you should register before you loggin'}
 
 
