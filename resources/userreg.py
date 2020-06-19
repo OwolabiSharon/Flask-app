@@ -24,11 +24,16 @@ class UserReg(Resource):
                         required=True,
                         help="This field cannot be left blank!"
                         )
+    parser.add_argument('email',
+                        type=str ,
+                        required=True,
+                        help="This field cannot be left blank!"
+                        )
     def post(self):
         data = UserReg.parser.parse_args()
         if UserData.find_by_username(data['username']):
             return {'message': 'that username exists change it or die'}
-        user = UserData(data['name'] , data['date_of_birth'] , data['username'] , data['password'])
+        user = UserData(data['name'] , data['date_of_birth'] , data['username'] , data['password'], data['email'])
         try:
             user.save_to_db()
         except:
