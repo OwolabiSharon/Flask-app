@@ -16,7 +16,7 @@ app.secret_key = '1234567890)(*&^%$#@!)'
 app.config['MAIL_SERVER'] = 'mail.yahoo.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-#app.config.from_pyfile('config.cfg')
+app.config.from_pyfile('config.cfg')
 
 api = Api(app)
 jwt = JWTManager(app)
