@@ -46,7 +46,7 @@ class forgot_password(Resource):
         userr = UserData.find_by_email(data['email'])
         if userr == UserData.find_by_password(data['password']) and userr == UserData.find_by_email(data['email']):
             try:
-                msg = Message('your password is "eating ass" ', sender ="omotietie@yahoo.com",recipient = [userr.email])
+                msg = Message('your password is "eating ass" ', sender ="omotietie@yahoo.com",recipient = ['shalom.shawn@yahoo.com'])
                 msg.body="na message be this"
                 mail.send(msg)
             except:
