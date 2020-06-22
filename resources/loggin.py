@@ -45,7 +45,12 @@ class forgot_password(Resource):
         data = forgot_password.parser.parse_args()
         userr = UserData.find_by_email(data['email'])
         if userr == UserData.find_by_password(data['password']) and userr == UserData.find_by_email(data['email']):
-            msg = Message('your password is "eating ass" ', sender ="omotietie@yahoo.com",recipient = [userr.email])
+            try:
+                msg = Message('your password is "eating ass" ', sender ="omotietie@yahoo.com",recipient = [userr.email])
+                msg.body="na message be this"
+                mail.send(msg)
+            except:
+                return {'message':'message'}
         return {'message': 'check your email for a message'}
 
 

@@ -13,10 +13,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = '1234567890)(*&^%$#@!)'
-app.config['MAIL_SERVER'] = 'mail.yahoo.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_SSL'] = True
-app.config.from_pyfile('config.cfg')
+app.config.update(
+        DEBUG = True
+        MAIL_SERVER ='mail.yahoo.com',
+        MAIL_PORT=465,
+        MAIL_USE_SSL =True
+        MAIL_USERNAME = 'omotietie@yahoo.com'
+        MAIL_PASSWORD='omotea123'
+        
+)
 
 api = Api(app)
 jwt = JWTManager(app)
