@@ -14,13 +14,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = '1234567890)(*&^%$#@!)'
 app.config.update(
-        DEBUG = True
+        DEBUG = True,
         MAIL_SERVER ='mail.yahoo.com',
         MAIL_PORT=465,
-        MAIL_USE_SSL =True
-        MAIL_USERNAME = 'omotietie@yahoo.com'
+        MAIL_USE_SSL =True,
+        MAIL_USERNAME = 'omotietie@yahoo.com',
         MAIL_PASSWORD='omotea123'
-        
+
 )
 
 api = Api(app)
